@@ -1,0 +1,6 @@
+authors = ["Enrique Gómez Cruz <enriquegomezcruz@gmail.com>"]
+name = "GnuplotJulia"
+uuid = "54f91a28-ed60-11e8-0add-1da722ecd095"
+version = "0.1.0"
+
+[deps]

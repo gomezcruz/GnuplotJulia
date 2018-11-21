@@ -1,3 +1,5 @@
+module GnuplotJulia
+
 const Data2D = NTuple{2, Vector{<:Real}}
 const Data3D = NTuple{3, Vector{<:Real}}
 
@@ -90,3 +92,5 @@ function cleanup(gp::Gnuplot)
     gp.counter = 0
     run(`find -x . -name tmp-\* -delete`)
 end
+
+end # module
