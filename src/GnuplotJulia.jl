@@ -1,5 +1,8 @@
 module GnuplotJulia
 
+export Gnuplot, epslatex!, png!, config!, tex2pdf, tex2png,
+       plot, mpeg, cleanup
+
 const Data2D = NTuple{2, Vector{<:Real}}
 const Data3D = NTuple{3, Vector{<:Real}}
 
