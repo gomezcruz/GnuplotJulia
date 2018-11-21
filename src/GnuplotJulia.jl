@@ -5,6 +5,8 @@ export Gnuplot, epslatex!, png!, config!, tex2pdf, tex2png,
 
 const Data2D = NTuple{2, Vector{<:Real}}
 const Data3D = NTuple{3, Vector{<:Real}}
+const Points2D = Vector{NTuple{2, <:Real}}
+const Points3D = Vector{NTuple{3, <:Real}}
 
 mutable struct Gnuplot
     p::Base.Process
@@ -48,6 +50,18 @@ function plot(gp::Gnuplot, data::Data2D, opts::String)
     println(gp.p, "plot '-' ", opts)
     @inbounds for i = 1:n
         println(gp.p, x[i], " ", y[i])
+    end
+    println(gp.p, "e")
+    gp.counter += 1
+end
+
+function plot(gp::Gnuplot, pts::Points2D, opts::String)
+    println(gp.p, "set output 'tmp-",
+            lpad(gp.counter, gp.padding, '0'), gp.ext, "'")
+    println(gp.p, "plot '-' ", opts)
+    @inbounds for i = 1:length(pts)
+        p::NTuple{2, <:Real}
+        println(gp.p, p[1], " ", p[2])
     end
     println(gp.p, "e")
     gp.counter += 1
