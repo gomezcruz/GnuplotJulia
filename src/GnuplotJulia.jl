@@ -1,7 +1,6 @@
 module GnuplotJulia
 
-export Gnuplot, tex!, png!, openPlot!, closePlot!, cmd!, plot!, tex2pdf,
-tex2png, mpeg, cleanup
+export gp, Gnuplot, tex!, png!, cmd!, pts!, tex2pdf, tex2png, mpeg, cleanup
 
 mutable struct Gnuplot
     p::Base.Process
@@ -104,6 +103,6 @@ function cleanup()
     gp.counter = 0
 end
 
-global gp = Gnuplot()
+gp = Gnuplot()
 
 end # module
